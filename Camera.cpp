@@ -2,7 +2,7 @@
 
 #include "Camera.h"
 
-Camera::Camera(const Window& window) : window(window) {
+Camera::Camera(Window& window) : window(window) {
 	glfwSetWindowUserPointer(window.window, this);
 	glfwSetCursorPosCallback(window.window, [](GLFWwindow* window, double x, double y) {
 		((Camera*)glfwGetWindowUserPointer(window))->setCursorPos(x, y);
@@ -20,7 +20,7 @@ Camera::Camera(const Window& window) : window(window) {
 
 	glBindBuffer(GL_UNIFORM_BUFFER, UBO);
 	glBufferData(GL_UNIFORM_BUFFER, sizeof(uniformBuffer), nullptr, GL_DYNAMIC_DRAW);
-	setProjection();
+	setProjection(window.getWidth(), window.getHeight());
 
 	glBindBufferRange(GL_UNIFORM_BUFFER, 0, UBO, 0, 2 * sizeof(glm::mat4));
 	enable();

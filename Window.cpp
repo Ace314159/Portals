@@ -32,10 +32,8 @@ Window::Window() {
 
 	glViewport(0, 0, width, height);
 	glfwSetFramebufferSizeCallback(window, [](GLFWwindow* window, int width, int height) {
-		width = width;
-		height = height;
 		glViewport(0, 0, width, height);
-		((Camera*)glfwGetWindowUserPointer(window))->setProjection();
+		((Camera*)glfwGetWindowUserPointer(window))->setProjection(width, height);
 	});
 }
 

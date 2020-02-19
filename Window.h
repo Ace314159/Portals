@@ -14,6 +14,8 @@ public:
 	inline bool isOpen() { return !glfwWindowShouldClose(window); };
 	void swapBuffers();
 	GLFWwindow* window;
+
+	friend class Camera;
 private:
 	int width = 800, height = 600;
 

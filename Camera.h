@@ -8,7 +8,7 @@
 
 class Camera {
 public:
-	Camera(const Window& window);
+	Camera(Window& window);
 
 	void update();
 	void setCursorPos(double x, double y);
@@ -20,20 +20,22 @@ public:
 		enabled = false;
 		glfwSetInputMode(window.window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 	};
-	inline void setProjection() {
+	inline void setProjection(int width, int height) {
+		window.width = width;
+		window.height = height;
+
 		uniformBuffer.projection = glm::perspective(glm::radians(45.0f),
 			(float)window.getWidth() / window.getHeight(), 0.1f, 100.0f);
 		glBufferSubData(GL_UNIFORM_BUFFER, 0, sizeof(uniformBuffer.projection),
 			glm::value_ptr(uniformBuffer.projection));
 	}
 private:
-
 	struct UniformBuffer {
 		glm::mat4 projection;
 		glm::mat4 view;
 	};
 
-	const Window& window;
+	Window& window;
 
 	GLuint UBO;
 	UniformBuffer uniformBuffer;
