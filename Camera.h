@@ -40,12 +40,12 @@ private:
 	GLuint UBO;
 	UniformBuffer uniformBuffer;
 
-	glm::vec3 pos{ 0, 0, 0 };
+	glm::vec3 pos{ 0, 1, 0 };
 	glm::vec3 up{ 0, 1, 0 };
 	glm::vec3 front;
 
 	double prevTime = glfwGetTime();
-	const float baseSpeed = 1;
+	const float baseSpeed = 5;
 	const double sensitivity = 0.1;
 
 	double yaw = -90;
