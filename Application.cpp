@@ -15,9 +15,9 @@ int main() {
 	
 	Quad portal({ -1.5, -2, 0 }, { 3, 4 });
 
-	glm::mat4 portal1Model = glm::translate(glm::mat4(1), { 0, 2, -room.getRoomSize() + 0.01 });
+	glm::mat4 portal1Model = glm::translate(glm::mat4(1), { 0, 2, -room.getRoomSize() });
 
-	glm::mat4 portal2Model = glm::translate(glm::mat4(1), { -room.getRoomSize() + 0.01, 2, 0 });
+	glm::mat4 portal2Model = glm::translate(glm::mat4(1), { -room.getRoomSize(), 2, 0 });
 	portal2Model = glm::rotate(portal2Model, glm::radians(90.0f), { 0, 1, 0 });
 
 ;	while(window.isOpen()) {
