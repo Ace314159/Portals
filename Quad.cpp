@@ -20,8 +20,7 @@ Quad::Quad(const glm::vec3& pos, const glm::vec2& size) : pos(pos), size(size) {
 	EBO.bufferData(indices.size() * sizeof(unsigned int), indices.data(), GL_STATIC_DRAW);
 }
 
-void Quad::draw(const Shader& shader) {
-	shader.use();
+void Quad::draw() {
 	VAO.bind(VBO, EBO, sizeof(glm::vec3));
 	glDrawElements(GL_TRIANGLES, (GLsizei)indices.size(), GL_UNSIGNED_INT, 0);
 }

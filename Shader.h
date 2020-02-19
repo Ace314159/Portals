@@ -21,6 +21,9 @@ public:
 	inline void setVec3(const char* name, const glm::vec3& value) const {
 		glUniform3fv(glGetUniformLocation(ID, name), 1, glm::value_ptr(value));
 	}
+	inline void setVec4(const char* name, const glm::vec4& value) const {
+		glUniform4fv(glGetUniformLocation(ID, name), 1, glm::value_ptr(value));
+	}
 private:
 	GLuint ID;
 };
