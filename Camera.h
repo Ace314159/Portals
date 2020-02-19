@@ -29,6 +29,13 @@ public:
 		glBufferSubData(GL_UNIFORM_BUFFER, 0, sizeof(uniformBuffer.projection),
 			glm::value_ptr(uniformBuffer.projection));
 	}
+	inline void setView(const glm::mat4& view) {
+		uniformBuffer.view = view;
+		glBufferSubData(GL_UNIFORM_BUFFER, sizeof(glm::mat4), sizeof(glm::mat4), &uniformBuffer.view);
+	}
+	inline const glm::mat4& getView() {
+		return uniformBuffer.view;
+	}
 private:
 	struct UniformBuffer {
 		glm::mat4 projection;
@@ -42,7 +49,7 @@ private:
 
 	glm::vec3 pos{ 0, 1, 0 };
 	glm::vec3 up{ 0, 1, 0 };
-	glm::vec3 front;
+	glm::vec3 front{ 0, 0, -1 };
 
 	double prevTime = glfwGetTime();
 	const float baseSpeed = 5;

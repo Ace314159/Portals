@@ -30,6 +30,8 @@ Window::Window() {
 
 	glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_STENCIL_TEST);
+	glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
 
 	glViewport(0, 0, width, height);
 	glfwSetFramebufferSizeCallback(window, [](GLFWwindow* window, int width, int height) {
