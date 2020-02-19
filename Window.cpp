@@ -28,6 +28,7 @@ Window::Window() {
 	});
 #endif
 
+	glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
 
 	glViewport(0, 0, width, height);

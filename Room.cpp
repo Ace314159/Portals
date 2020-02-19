@@ -3,16 +3,16 @@
 #include "Room.h"
 
 Room::Room(const Shader& quadShader) : quadShader(quadShader) {
-	floorModel = glm::rotate(glm::mat4(1), glm::radians(90.0f), { 1, 0, 0 });
+	floorModel = glm::rotate(glm::mat4(1), glm::radians(90.0f), { -1, 0, 0 });
 
 	wall1Model = glm::translate(glm::mat4(1), { roomSize, roomSize, 0 });
-	wall1Model = glm::rotate(wall1Model, glm::radians(90.0f), { 0, 1, 0 });
+	wall1Model = glm::rotate(wall1Model, glm::radians(90.0f), { 0, -1, 0 });
 
 	wall2Model = glm::translate(glm::mat4(1), { -roomSize, roomSize, 0 });
 	wall2Model = glm::rotate(wall2Model, glm::radians(90.0f), { 0, 1, 0 });
 
 	wall3Model = glm::translate(glm::mat4(1), { 0, roomSize, roomSize });
-	wall3Model = glm::rotate(wall3Model, glm::radians(90.0f), { 0, 0, 1 });
+	wall3Model = glm::rotate(wall3Model, glm::radians(180.0f), { 0, 1, 0 });
 
 	wall4Model = glm::translate(glm::mat4(1), { 0, roomSize, -roomSize });
 	wall4Model = glm::rotate(wall4Model, glm::radians(90.0f), { 0, 0, 1 });
