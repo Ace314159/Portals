@@ -1,5 +1,6 @@
 #include "stdafx.h"
 
+#include "Camera.h"
 #include "Window.h"
 
 Window::Window() {
@@ -34,6 +35,7 @@ Window::Window() {
 		width = width;
 		height = height;
 		glViewport(0, 0, width, height);
+		((Camera*)glfwGetWindowUserPointer(window))->setProjection();
 	});
 }
 

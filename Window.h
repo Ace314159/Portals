@@ -8,6 +8,9 @@ public:
 	Window();
 	~Window();
 
+	int getWidth() const { return width; };
+	int getHeight() const { return height; };
+
 	inline bool isOpen() { return !glfwWindowShouldClose(window); };
 	void swapBuffers();
 	GLFWwindow* window;
