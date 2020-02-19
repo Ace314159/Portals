@@ -2,7 +2,7 @@
 
 #include "Quad.h"
 
-Quad::Quad(const glm::vec3& pos, const glm::vec2& size) : pos(pos), size(size) {
+Quad::Quad(const glm::vec3& pos, const glm::vec2& size) {
 	vertices = {
 		glm::vec3(pos.x         , pos.y         , pos.z),
 		glm::vec3(pos.x + size.x, pos.y         , pos.z),

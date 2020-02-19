@@ -15,8 +15,5 @@ public:
 private:
 	VertexArray VAO;
 	Buffer VBO, EBO;
-
-	glm::vec2 pos;
-	glm::vec2 size;
 };
 
