@@ -52,6 +52,28 @@ void Camera::update() {
 		dPos -= up * speed;
 
 	pos += dPos;
+	float d = 0.1f;
+	if(pos.x > -1.5 && pos.x < 1.5 && pos.z < -10 + d) {
+		pos.z = 1.5 - (1.5 - pos.x);
+		pos.x = -10 + d;
+		yaw += 90;
+		front = glm::normalize(glm::vec3(
+			cos(glm::radians(pitch)) * cos(glm::radians(yaw)),
+			sin(glm::radians(pitch)),
+			cos(glm::radians(pitch)) * sin(glm::radians(yaw))
+		));
+	}
+
+	if(pos.z > -1.5 && pos.z < 1.5 && pos.x < -10 + d) {
+		pos.x = 1.5 - (1.5 - pos.z);
+		pos.z = -10 + d;
+		yaw -= 90;
+		front = glm::normalize(glm::vec3(
+			cos(glm::radians(pitch)) * cos(glm::radians(yaw)),
+			sin(glm::radians(pitch)),
+			cos(glm::radians(pitch)) * sin(glm::radians(yaw))
+		));
+	}
 
 	uniformBuffer.view = glm::lookAt(pos, pos + front, up);
 
